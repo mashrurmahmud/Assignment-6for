@@ -12,8 +12,8 @@ export const  getAllCourse = async()=>{
     return course;
 }
 
-export const getOneCourse = async(id)=>{
-    const course = await courseRepo.getOneCourse(id);
+export const getOneCourse = async(id,instructorName)=>{
+    const course = await courseRepo.getOneCourse(id,instructorName);
     return course;
 }
 

@@ -8,6 +8,7 @@ router.post('/createBook', courseController.createBook );
 router.get('/allCourse', courseController.getAllCourse);
 router.get('/findOnlyOnebooks/:id', courseController.getOneCourse);
 router.put('/updateCourse/:id', courseController.updateCourse);
+router.delete('/deleteCourse/:id', courseController.deleteCourse );
 
 
 

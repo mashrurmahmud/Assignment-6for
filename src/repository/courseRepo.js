@@ -14,8 +14,8 @@ export const getOneCourse = async(id)=>{
     return getCourse;
 }
 
-export const updateCourse = async(id)=>{
-    const updateCourses = await courseModel.findByIdAndUpdate(id);
+export const updateCourse = async(id,instructorName)=>{
+    const updateCourses = await courseModel.findByIdAndUpdate(id,{instructorName});
     return updateCourse;
 }
 

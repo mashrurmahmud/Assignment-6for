@@ -31,9 +31,12 @@ export const getAllCourse = async(req,res)=>{
     
 }
 
+export const deleteCourse = async(req)
+
 export const updateCourse = async(req,res)=>{
     const getCourseId = req.params.id;
-    const getAllcours= await courseService.updateCourse(getCourseId);
+    const {instructorName} = req.body;
+    const getAllcours= await courseService.updateCourse(getCourseId,instructorName);
     return getAllCourse;
 }
 export const getOneCourse = async(req, res)=>{
@@ -49,5 +52,5 @@ export default {
     getAllCourse,
     getOneCourse,
     updateCourse
-    
+
 }
