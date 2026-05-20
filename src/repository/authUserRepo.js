@@ -17,6 +17,16 @@ export const login = async(email, password)=>{
 
 }
 
+export const updateUser = async(email,password,phoneNumber)=>{
+    const updateUser = await user.updateOne({email},{
+        $set:{
+            password,
+            phoneNumber
+        }
+    });
+    return updateUser;
+}
+
 
 
 export const createUser = async(userData)=>{
@@ -35,6 +45,7 @@ export default {
     findUserByEmail,
     createUser,
     login,
-    getLoginUser
+    getLoginUser,
+    updateUser
 }
 

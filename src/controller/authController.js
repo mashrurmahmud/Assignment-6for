@@ -1,9 +1,11 @@
 
 import authService from "../service/authService.js";
 
+
 export const register = async(req,res)=>{
      
     const {email, password} = req.body;
+   
     
 
     if(!email || !password){
@@ -18,8 +20,8 @@ export const register = async(req,res)=>{
     }
   
     
-        const user = await authService.createUser(email, password);
-        if(user){
+    const user = await authService.createUser(email, password);
+    if(user){
             return res.status(201).json({
                 message:"User registered successfully",
                 success:true,
@@ -31,6 +33,20 @@ export const register = async(req,res)=>{
     
 
     
+
+}
+
+export const updateUser = async(req,res)=>{
+    const {email} = req.params;
+    const {password,phoneNumber} = req.body;
+    const updatedUser = await authService.updateUser(email,password,phoneNumber);
+    if(updateUser){
+        res.status(200).json({
+            message:"user's profile successfully updated"
+
+        })
+    }
+
 
 }
 
@@ -67,5 +83,6 @@ export const getLoginUser = async(req, res)=>{
 export default {
     register,
     login,
-    getLoginUser
+    getLoginUser,
+    updateUser
 }

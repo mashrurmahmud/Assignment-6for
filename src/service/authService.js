@@ -1,6 +1,7 @@
 
 import userRepo from "../repository/authUserRepo.js";
 import bcrypt from "bcryptjs";
+import { signAuthToken } from "../utils/jwt.js";
 export const findUserByEmail =async(email)=>{
      const user = await userRepo.findUserByEmail(email);
      return user;
@@ -30,9 +31,19 @@ export const getLoginUser = async()=>{
      return await userRepo.getLoginUser();
 }
 
+export const updateUser=async(email,password,phoneNumber)=>{
+     const user = await userRepo.updateUser(email,password,phoneNumber);
+     return user;
+     
+
+}
+
+
+
 export default{
     findUserByEmail,
     createUser,
     getLoginUser ,
-    login
+    login,
+    updateUser
 }
