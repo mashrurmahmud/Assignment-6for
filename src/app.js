@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoute from './route/authRoute.js';
+import courseRoute from './route/courseRoute.js'
 import { errorHandler, notFound } from './middelwares/errorHandleres.js';
 
 
@@ -14,6 +15,8 @@ app.use(cors());
 
 
 app.use("/api/auth", authRoute );
+app.use("/course", courseRoute);
+
 
 app.use(notFound);
 app.use(errorHandler);
