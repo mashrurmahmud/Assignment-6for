@@ -31,7 +31,16 @@ export const getAllCourse = async(req,res)=>{
     
 }
 
+export const getOneCourse = async(req, res)=>{
+    const id = req.params.id;
+    const getOne = await courseService.getOneCourse(id);
+    return getOne;
+
+    
+}
+
 export default {
     createBook,
-    getAllCourse
+    getAllCourse,
+    getOneCourse
 }

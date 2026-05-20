@@ -12,11 +12,17 @@ export const  getAllCourse = async()=>{
     return course;
 }
 
+export const getOneCourse = async(id)=>{
+    const course = await courseRepo.getOneCourse(id);
+    return course;
+}
+
 
 
 export default {
     createBook,
-    getAllCourse
+    getAllCourse,
+    getOneCourse
 }
 
 

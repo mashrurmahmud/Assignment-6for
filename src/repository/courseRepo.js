@@ -9,9 +9,13 @@ export const getAllCourse = async()=>{
      const getCourse = await courseModel.find();
      return getCourse;
 }
-
+export const getOneCourse = async(id)=>{
+    const getCourse = await courseModel.findById(id);
+    return getCourse;
+}
 
 export default {
     createBook,
-    getAllCourse
+    getAllCourse,
+    getOneCourse
 }
