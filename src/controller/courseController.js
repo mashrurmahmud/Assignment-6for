@@ -31,7 +31,15 @@ export const getAllCourse = async(req,res)=>{
     
 }
 
-export const deleteCourse = async(req)
+export const deleteCourse = async(req, res)=>{
+    const dataid = req.params.id;
+    const getcourse = await courseService.deleteCourse(dataid);
+    if(getcourse){
+        res.json({
+            message:"data successfully deleted"
+        })
+    }
+}
 
 export const updateCourse = async(req,res)=>{
     const getCourseId = req.params.id;
@@ -51,6 +59,7 @@ export default {
     createBook,
     getAllCourse,
     getOneCourse,
-    updateCourse
+    updateCourse,
+    deleteCourse
 
 }

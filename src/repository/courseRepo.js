@@ -19,9 +19,15 @@ export const updateCourse = async(id,instructorName)=>{
     return updateCourse;
 }
 
+export const deleteCourse = async(id)=>{
+    const deleteCourse = await courseModel.findByIdAndDelete(id);
+    return deleteCourse
+}
+
 export default {
     createBook,
     getAllCourse,
     getOneCourse,
-    updateCourse
+    updateCourse,
+    deleteCourse
 }

@@ -22,12 +22,18 @@ export const updateCourse = async(id)=>{
     return course;
 }
 
+export const deleteCourse = async(id)=>{
+    const course = await courseRepo.deleteCourse(id);
+    return course
+}
+
 
 export default {
     createBook,
     getAllCourse,
     getOneCourse,
-    updateCourse
+    updateCourse,
+    deleteCourse,
 }
 
 
