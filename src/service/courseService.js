@@ -17,12 +17,17 @@ export const getOneCourse = async(id)=>{
     return course;
 }
 
+export const updateCourse = async(id)=>{
+    const course = await courseRepo.updateCourse(id);
+    return course;
+}
 
 
 export default {
     createBook,
     getAllCourse,
-    getOneCourse
+    getOneCourse,
+    updateCourse
 }
 
 

@@ -14,8 +14,14 @@ export const getOneCourse = async(id)=>{
     return getCourse;
 }
 
+export const updateCourse = async(id)=>{
+    const updateCourses = await courseModel.findByIdAndUpdate(id);
+    return updateCourse;
+}
+
 export default {
     createBook,
     getAllCourse,
-    getOneCourse
+    getOneCourse,
+    updateCourse
 }
