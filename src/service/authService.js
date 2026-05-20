@@ -11,8 +11,13 @@ export const createUser = async(email, password)=>{
     // return user;
     const user = await userRepo.findUserByEmail(email);
     const hasedPassword = await bcrypt.hash(password, 10);
+    const token = signAuthToken({userID:user?.email, hasedPassword})
     const newUser = await userRepo.createUser({email, password:hasedPassword});
-    return newUser
+     return {
+          user_email:email,
+          user_password:password,
+          user_token:token
+     }
     
 }
 export const login = async(email, password)=>{
